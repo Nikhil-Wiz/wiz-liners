@@ -173,7 +173,7 @@ type PortsRepository interface{
 		Type *string,
 		City_Id *int64,
 		State *string,
-		Latittude *float64,
+		Latitude *float64,
 		Longitude *float64,
 	)(repositories.Ports, error)
 
