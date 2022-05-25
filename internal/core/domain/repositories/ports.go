@@ -2,12 +2,14 @@ package repositories
 
 import "time"
 
-type Port struct {
-	Id int64
+type Ports struct {
 	Code string
 	Name string
-	City string
-	Country string
+	Type string
+	City_Id int64
+	State string
+	Latitude float64
+	Longitude float64
 	CreatedAt time.Time
 	ModifiedAt time.Time
 }

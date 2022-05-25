@@ -1,11 +1,11 @@
-package port
+package liners
 
 const(
 	ID = "id"
-	CODE = "code"
 	NAME = "name"
-	CITY = "city"
-	COUNTRY = "country"
+	CODE = "code"
+	TYPE = "type"
+	LOGO = "logo"
 	CREATED_AT = "created_at"
 	MODIFIED_AT = "modified_at"
 )

@@ -1,9 +1,10 @@
 package tables
 
 const(
-	LINER = "liner"
-	PORT = "port"
-	RATE = "rate"
-	ROUTE = "route"
-	SCHEDULE = "schedule"
+	LINERS = "liners"
+	PORTS = "ports"
+	CITIES = "cities"
+	COUNTRIES = "countries"
+	CURRENCIES = "currencies"
+	HSCODES = "hs_codes"
 )

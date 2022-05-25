@@ -8,8 +8,8 @@ type LinerRepository interface{
 	Insert(
 	Name string,
 	Code string,
+	Type string,
 	Logo string,
-	TypeOfLiners string,
 	)(int64,error)
 
 	ReadOne(
@@ -25,8 +25,8 @@ type LinerRepository interface{
 		id int64,
 		Name *string,
 		Code *string,
+		Type *string,
 		Logo *string,
-		TypeOfLiners *string,
 	)(int64,error)
 
 	Delete(
