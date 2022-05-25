@@ -4,7 +4,7 @@ import(
 	"wiz-liners/internal/core/domain/repositories"
 )
 
-type LinerRepository interface{
+type LinersRepository interface{
 	Insert(
 	Name string,
 	Code string,
@@ -33,4 +33,99 @@ type LinerRepository interface{
 		id int64,
 	)(error)
 
+}
+
+type CountriesRepository interface{
+	Insert(
+
+	)()
+	ReadOne(
+
+	)()
+	ReadMany(
+
+	)()
+	Update(
+
+	)()
+	Delete(
+
+	)()
+
+}
+
+type CitiesRepository interface{
+	Insert(
+
+	)()
+	ReadOne(
+
+	)()
+	ReadMany(
+
+	)()
+	Update(
+
+	)()
+	Delete(
+
+	)()
+	
+}
+
+type CurrenciesRepository interface{
+	Insert(
+
+	)()
+	ReadOne(
+
+	)()
+	ReadMany(
+
+	)()
+	Update(
+
+	)()
+	Delete(
+
+	)()
+	
+}
+
+type Hs_CodeRepository interface{
+	Insert(
+
+	)()
+	ReadOne(
+
+	)()
+	ReadMany(
+
+	)()
+	Update(
+
+	)()
+	Delete(
+
+	)()
+	
+}
+
+type PortsRepository interface{
+	Insert(
+
+	)()
+	ReadOne(
+
+	)()
+	ReadMany(
+
+	)()
+	Update(
+
+	)()
+	Delete(
+
+	)()
+	
 }
