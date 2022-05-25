@@ -9,6 +9,6 @@ type Countries struct{
 	Name string
 	Iso_code string
 	Currency_code string
-	CreatedAt time.Time
-	ModifiedAt time.Time
+	Created_At time.Time
+	Modified_At time.Time
 }

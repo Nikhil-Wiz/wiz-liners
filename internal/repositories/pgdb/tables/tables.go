@@ -6,5 +6,5 @@ const(
 	CITIES = "cities"
 	COUNTRIES = "countries"
 	CURRENCIES = "currencies"
-	HSCODES = "hs_codes"
+	HS_CODES = "hs_codes"
 )

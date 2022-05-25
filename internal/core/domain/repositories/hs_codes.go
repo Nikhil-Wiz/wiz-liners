@@ -9,6 +9,6 @@ type Hs_codes struct{
 	Name string
 	Description string
 	Parent_code string
-	CreatedAt time.Time
-	ModifiedAt time.Time
+	Created_At time.Time
+	Modified_At time.Time
 }

@@ -10,6 +10,6 @@ type Ports struct {
 	State string
 	Latitude float64
 	Longitude float64
-	CreatedAt time.Time
-	ModifiedAt time.Time
+	Created_At time.Time
+	Modified_At time.Time
 }

@@ -10,6 +10,6 @@ type Liners struct {
 	Code string
 	Type string  //sea or air
 	Logo string	
-	CreatedAt time.Time
-	ModifiedAt time.Time
+	Created_At time.Time
+	Modified_At time.Time
 }
