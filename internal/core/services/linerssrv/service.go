@@ -160,4 +160,3 @@ func (s *service) linersRepoToService(
 		Logo: repoLiner.Logo,
 	}
 }
->>>>>>> cb93c60ee78de942235168903b0ff486cd3cb9d4
