@@ -107,7 +107,7 @@ type CurrenciesRepository interface{
 	)([]repositories.Currencies, error)
 
 	Update(
-		code *string,
+		code string,
 		Name *string,
 	)(repositories.Currencies, error)
 
@@ -123,7 +123,7 @@ type Hs_CodeRepository interface{
 		Name string,
 		Description string,
 		Parent_code string,
-	)(repositories.Hs_codes, error)
+	)(string, error)
 
 	ReadOne(
 		code string,
@@ -135,7 +135,7 @@ type Hs_CodeRepository interface{
 	)([]repositories.Hs_codes, error)
 
 	Update(
-		code *string,
+		code string,
 		Name *string,
 		Description *string,
 		Parent_code *string,
