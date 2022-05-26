@@ -5,10 +5,6 @@ import (
 	"wiz-liners/internal/core/domain/repositories"
 	"wiz-liners/internal/core/domain/services"
 	"wiz-liners/internal/core/ports"
-	"wiz-liners/internal/core/domain/services"
-
-	mapset "github.com/deckarep/golang-set/v2"
-	"github.com/samber/lo"
 )
 
 type service struct {
@@ -23,12 +19,12 @@ func New(
 	}
 }
 
-func(s *service)create(
+func (s *service) Create(
 	Code string,
 	Name string,
 	Description string,
 	Parent_code string,
-)(services.Hs_codes, error){
+) (services.Hs_codes, error) {
 	hsCode, err := s.Hs_CodeRepository.Insert(
 		Code,
 		Name,
@@ -48,17 +44,16 @@ func(s *service)create(
 	if !exists {
 		return services.Hs_codes{}, fmt.Errorf(
 			"could not find HS Code with code: %s",
-			&hsCode,
+			hsCode,
 		)
 	}
 
-	return s.hsCodeRepoToService(    
+	return s.hsCodeRepoToService(
 		repoHsCode,
 	), nil
 }
 
-
-func (s *service) Get(code string) (services.Hs_codes, error){
+func (s *service) Get(code string) (services.Hs_codes, error) {
 	repoHsCode, exists, err := s.Hs_CodeRepository.ReadOne(code)
 
 	if err != nil {
@@ -79,7 +74,7 @@ func (s *service) Get(code string) (services.Hs_codes, error){
 func (s *service) GetMany(
 	pageNumber *uint,
 	itemsPerPage uint,
-) ([]services.Hs_codes, error){
+) ([]services.Hs_codes, error) {
 	repoHsCodes, err := s.Hs_CodeRepository.ReadMany(
 		pageNumber,
 		itemsPerPage,
@@ -88,7 +83,7 @@ func (s *service) GetMany(
 	if err != nil {
 		return make([]services.Hs_codes, 0), err
 	}
-    
+
 	hsCodes := []services.Hs_codes{}
 
 	for _, cr := range repoHsCodes {
@@ -100,7 +95,7 @@ func (s *service) GetMany(
 		)
 	}
 
-	return hsCodes,nil
+	return hsCodes, nil
 
 }
 
@@ -132,9 +127,9 @@ func (s *service) hsCodeRepoToService(
 	repoHsCode repositories.Hs_codes,
 ) services.Hs_codes {
 	return services.Hs_codes{
-		Code:      repoHsCode.Code,
-		Name:    repoHsCode.Name,
+		Code:        repoHsCode.Code,
+		Name:        repoHsCode.Name,
 		Description: repoHsCode.Description,
-		Parent_code:    repoHsCode.Parent_code,
+		Parent_code: repoHsCode.Parent_code,
 	}
 }
