@@ -5,8 +5,6 @@ import (
 	"wiz-liners/internal/core/domain/repositories"
 	"wiz-liners/internal/core/domain/services"
 	"wiz-liners/internal/core/ports"
-	// 	mapset "github.com/deckarep/golang-set/v2"
-	// 	"github.com/samber/lo"
 )
 
 type service struct {
@@ -21,7 +19,7 @@ func New(
 	}
 }
 
-func (s *service) create(
+func (s *service) Create(
 	Code string,
 	Name string,
 	Description string,
