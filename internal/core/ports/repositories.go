@@ -79,6 +79,10 @@ type CitiesRepository interface{
 		itemsPerPage uint,
 	)([]repositories.Cities,error)
 
+	ReadManyByIds(
+		id []int64,
+	)([]repositories.Cities,error)
+	
 	Update(
 		id int64,
 		Name *string,
