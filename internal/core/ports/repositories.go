@@ -99,7 +99,7 @@ type CurrenciesRepository interface{
 	Insert(
 		Code string,
 		Name string,
-	)(repositories.Currencies, error)
+	)(string , error)
 
 	ReadOne(
 		code string,
