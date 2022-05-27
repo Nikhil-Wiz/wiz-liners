@@ -50,7 +50,10 @@ type CountriesRepository interface{
 		pageNumber *uint,
 		itemsPerPage uint,
 	)([]repositories.Countries,error)
-
+	
+	ReadManyByIds(
+		id int64,
+	)([]repositories.Countries, error)
 	Update(
 		id int64,
 		Name *string,
@@ -108,6 +111,10 @@ type CurrenciesRepository interface{
 	ReadMany(
 		pageNumber *uint,
 		itemsPerPage uint,
+	)([]repositories.Currencies, error)
+
+	ReadManyByCode(
+		code []string,
 	)([]repositories.Currencies, error)
 
 	Update(
