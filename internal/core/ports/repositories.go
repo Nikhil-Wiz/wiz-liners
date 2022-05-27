@@ -160,7 +160,7 @@ type PortsRepository interface{
 		State string,
 		Latitude float64,
 		Longitude float64,
-	)(repositories.Ports, error)
+	)(string, error)
 
 	ReadOne(
 		code string,
@@ -179,7 +179,7 @@ type PortsRepository interface{
 		State *string,
 		Latitude *float64,
 		Longitude *float64,
-	)(repositories.Ports, error)
+	)(string, error)
 
 	Delete(
 		code string,
