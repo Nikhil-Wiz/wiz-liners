@@ -102,10 +102,7 @@ func (s *service) GetMany(
 		pageNumber,
 		itemsPerPage,
 	)
-	if err != nil {
-		return []services.Cities{}, err
-	}
-
+	
 	if err != nil {
 		return make([]services.Cities, 0), err
 	}
