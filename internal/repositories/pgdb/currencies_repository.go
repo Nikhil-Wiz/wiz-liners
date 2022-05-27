@@ -132,7 +132,7 @@ func (r * currenciesRepository)Update(
 	}
 
 	result, err := r.goquDB.From(
-		tables.LINERS,
+		tables.CURRENCIES,
 	).Prepared(true).Update().Set(record).Where(
 		goqu.C(currencies.CODE).Eq(code),
 	).Executor().Exec()

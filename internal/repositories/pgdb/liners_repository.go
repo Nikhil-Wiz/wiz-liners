@@ -58,7 +58,7 @@ func (r * linersRepository)ReadOne(
 	var c repositories.Liners
 
 	found, err := r.goquDB.From(
-		tables.CURRENCIES,
+		tables.LINERS,
 	).Prepared(true).Select(
 		liners.ID,
 		liners.NAME,
@@ -98,7 +98,7 @@ func (r * linersRepository)ReadMany(
 	var linersList []repositories.Liners
 
 	err := r.goquDB.From(
-		tables.CURRENCIES,
+		tables.LINERS,
 	).Prepared(true).Select(
 		liners.ID,
 		liners.NAME,

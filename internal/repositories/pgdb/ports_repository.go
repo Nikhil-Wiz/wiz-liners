@@ -107,7 +107,7 @@ func (r *portsRepository) ReadMany(
 	var portsList []repositories.Ports
 
 	err := r.goquDB.From(
-		tables.CURRENCIES,
+		tables.PORTS,
 	).Prepared(true).Select(
 			ports.CODE,
 			ports.NAME,
