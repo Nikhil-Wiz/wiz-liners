@@ -113,7 +113,7 @@ type CurrenciesRepository interface{
 	Update(
 		code string,
 		Name *string,
-	)(repositories.Currencies, error)
+	)(string, error)
 
 	Delete(
 		code string,
