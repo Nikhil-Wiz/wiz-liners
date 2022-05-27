@@ -52,7 +52,7 @@ type CountriesRepository interface{
 	)([]repositories.Countries,error)
 	
 	ReadManyByIds(
-		id int64,
+		id []int64,
 	)([]repositories.Countries, error)
 	Update(
 		id int64,
