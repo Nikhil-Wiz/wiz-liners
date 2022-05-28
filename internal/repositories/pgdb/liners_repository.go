@@ -5,7 +5,7 @@ import (
 	"wiz-liners/internal/repositories/pgdb/tables"
 	"wiz-liners/internal/repositories/pgdb/tables/liners"
 
-	"github.com/doug-martin/goqu/v9"
+	goqu "github.com/doug-martin/goqu/v9"
 )
 
 type linersRepository struct {
