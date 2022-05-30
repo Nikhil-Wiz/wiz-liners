@@ -1,6 +1,6 @@
 -- +goose Up
 -- +goose StatementBegin
-CREATE TABLE IF NOT EXISTS liners (
+CREATE TABLE IF NOT EXISTS ports (
     code VARCHAR(255) NOT NULL,
     name VARCHAR(255),
     type VARCHAR(32),

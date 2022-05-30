@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS currencies (
 );
 
 CREATE TABLE IF NOT EXISTS countries (
-    id int NOT NULL,
+    id SERIAL,
     name VARCHAR(255),
     iso_code VARCHAR(32),
     currency_code VARCHAR(255),
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS countries (
 );
 
 CREATE TABLE IF NOT EXISTS cities (
-    id int NOT NULL,
+    id SERIAL,
     name VARCHAR(255),
     country_id int,
     created_at TIMESTAMP NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'UTC'),
