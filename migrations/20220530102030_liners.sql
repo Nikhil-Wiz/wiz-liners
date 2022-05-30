@@ -1,7 +1,7 @@
 -- +goose Up
 -- +goose StatementBegin
 CREATE TABLE IF NOT EXISTS liners (
-    id int NOT NULL,
+    id SERIAL,
     name VARCHAR(255),
     code VARCHAR(255),
     type VARCHAR(32),
