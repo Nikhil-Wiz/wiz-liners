@@ -4,12 +4,8 @@ import (
 	"database/sql"
 	"embed"
 	"fmt"
-	_ "fmt"
 	"time"
-	_ "wiz-liners/internal/repositories/pgdb"
-
 	"github.com/doug-martin/goqu/v9"
-	_ "github.com/doug-martin/goqu/v9"
 	_ "github.com/lib/pq"
 	"github.com/pressly/goose/v3"
 )
@@ -26,17 +22,6 @@ func main() {
 		panic(err)
 	}
 
-	db1 := dialect.DB(db)
-    result, err := db1.Insert("currencies").Rows(
-        goqu.Record{
-            "code": "123",
-            "name": "223",
-            "created_at":time.Now(),
-            "modified_at":time.Now(),
-        },
-    ).Executor().Exec()
-    fmt.Println(result,err)
-
 	// setup database
 	goose.SetBaseFS(embedMigrations)
 
@@ -48,6 +33,20 @@ func main() {
 		panic(err)
 	}
 
+
+	db1 := dialect.DB(db)
+    result, err := db1.Insert("countries").Rows(
+        goqu.Record{
+			"name":"USA",
+			"iso_code":"123",
+			"currency_code":"456",
+            "created_at":time.Now(),
+            "modified_at":time.Now(),
+        },
+    ).Executor().Exec()
+    fmt.Println(result,err)
+
+	
 	// run app
 
 	//fmt.Println((&pgdb.PortsRepository{}).Insert("nik", "nikhil", "sea", 123, "tn", 87.76, 78.56))
