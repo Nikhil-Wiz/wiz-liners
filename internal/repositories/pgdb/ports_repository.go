@@ -2,7 +2,6 @@ package pgdb
 
 import (
 	"wiz-liners/internal/core/domain/repositories"
-	//"wiz-liners/internal/core/ports"
 	"wiz-liners/internal/repositories/pgdb/tables"
 	"wiz-liners/internal/repositories/pgdb/tables/ports"
 

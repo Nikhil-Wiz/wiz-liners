@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"embed"
 	"fmt"
-	"time"
+	_ "time"
 	"github.com/doug-martin/goqu/v9"
 	_ "github.com/lib/pq"
 	"github.com/pressly/goose/v3"
@@ -35,18 +35,19 @@ func main() {
 
 	db1 := dialect.DB(db)
 
-	result, err := db1.Insert("currencies").Rows(
+	/*  result, err := db1.Insert("currencies").Rows(
         goqu.Record{
 			"code":"456",
 			"name":"fghfg",
             "created_at":time.Now(),
             "modified_at":time.Now(),
         },
-    ).Executor().Exec()
-    fmt.Println(result,err)
-	// val, err := db1.Update("currencies").
-	// 	Where(goqu.C("code").Eq("123")).
-	// 	Set(goqu.Record{"name": "gfhgf"}).
-	// 	Executor().Exec()
-	// fmt.Println(val, err)
+    ).Executor().Exec() 
+    fmt.Println(result,err)   */
+
+	val, err := db1.Update("currencies").
+ 	Where(goqu.C("code").Eq("456")).
+	Set(goqu.Record{"name": "jn"}).
+ 	Executor().Exec()
+	fmt.Println(val, err)
 }
