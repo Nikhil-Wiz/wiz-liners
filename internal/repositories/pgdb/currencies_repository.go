@@ -12,22 +12,21 @@ type currenciesRepository struct {
 	goquDB goqu.Database
 }
 
-func newCuurenciesRepository(goquDB goqu.Database) *currenciesRepository {
+func NewCuurenciesRepository(goquDB goqu.Database) *currenciesRepository {
 	return &currenciesRepository{
 		goquDB: goquDB,
 	}
 }
 
-func (r *currenciesRepository)Insert(
-	code string , 
+func (r *currenciesRepository) Insert(
+	code string,
 	name string,
-)(
-	string,error){
-	result, err := r.goquDB.Insert(tables.CURRENCIES).Prepared(true).Rows(
+) (
+	string, error) {
+	result, err := r.goquDB.Insert(tables.CURRENCIES).Rows(
 		goqu.Record{
-			currencies.CODE: code,
-			currencies.NAME: name,
-
+			currencies.CODE:        code,
+			currencies.NAME:        name,
 		},
 	).Executor().Exec()
 
@@ -41,21 +40,21 @@ func (r *currenciesRepository)Insert(
 		return "0", err
 	}
 
-	return string(rowId), nil
+	return string(rune(rowId)), nil
 }
 
-func (r * currenciesRepository)ReadOne(
+func (r *currenciesRepository) ReadOne(
 	code string,
-)(
+) (
 	repositories.Currencies,
 	bool,
 	error,
-){
+) {
 	var c repositories.Currencies
 
 	found, err := r.goquDB.From(
 		tables.CURRENCIES,
-	).Prepared(true).Select(
+	).Select(
 		currencies.CODE,
 		currencies.NAME,
 	).Where(
@@ -68,13 +67,13 @@ func (r * currenciesRepository)ReadOne(
 
 	return c, found, nil
 }
-func (r * currenciesRepository)ReadMany(
+func (r *currenciesRepository) ReadMany(
 	pageNumber *uint,
 	itemsPerPage uint,
-)(
+) (
 	[]repositories.Currencies,
 	error,
-){
+) {
 	var pn uint = 1
 	if pageNumber == nil {
 		pn = 1
@@ -90,7 +89,7 @@ func (r * currenciesRepository)ReadMany(
 
 	err := r.goquDB.From(
 		tables.CURRENCIES,
-	).Prepared(true).Select(
+	).Select(
 		currencies.CODE,
 		currencies.NAME,
 		currencies.CREATED_AT,
@@ -107,14 +106,14 @@ func (r * currenciesRepository)ReadMany(
 
 	return currenciesList, nil
 }
-func (r * currenciesRepository)Update(
-		code string,
-		name *string,
-		
-)(
+func (r *currenciesRepository) Update(
+	code string,
+	name *string,
+
+) (
 	string,
 	error,
-){
+) {
 	record := goqu.Record{}
 
 	if len(code) != 0 {
@@ -125,15 +124,13 @@ func (r * currenciesRepository)Update(
 		record[currencies.NAME] = *name
 	}
 
-	
-
 	if len(record) == 0 {
 		return "0", nil
 	}
 
 	result, err := r.goquDB.From(
 		tables.CURRENCIES,
-	).Prepared(true).Update().Set(record).Where(
+	).Update().Set(record).Where(
 		goqu.C(currencies.CODE).Eq(code),
 	).Executor().Exec()
 
@@ -147,16 +144,14 @@ func (r * currenciesRepository)Update(
 		return "0", err
 	}
 
-	return string(affectedRows), nil
+	return string(rune(affectedRows)), nil
 }
-func (r * currenciesRepository)Delete(
+func (r *currenciesRepository) Delete(
 	code string,
-)(
-	error,
-){
+) error {
 	_, err := r.goquDB.From(
 		tables.CURRENCIES,
-	).Prepared(true).Delete().Where(
+	).Delete().Where(
 		goqu.C(currencies.CODE).Eq(code),
 	).Executor().Exec()
 

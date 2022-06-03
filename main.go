@@ -4,10 +4,10 @@ import (
 	"database/sql"
 	"embed"
 	"fmt"
-	_ "time"
 	"github.com/doug-martin/goqu/v9"
 	_ "github.com/lib/pq"
 	"github.com/pressly/goose/v3"
+	pgdb "wiz-liners/internal/repositories/pgdb"
 )
 
 //go:embed migrations/*.sql
@@ -35,19 +35,27 @@ func main() {
 
 	db1 := dialect.DB(db)
 
-	/*  result, err := db1.Insert("currencies").Rows(
-        goqu.Record{
-			"code":"456",
-			"name":"fghfg",
-            "created_at":time.Now(),
-            "modified_at":time.Now(),
-        },
-    ).Executor().Exec() 
-    fmt.Println(result,err)   */
+	//run each functions seperately to complete crud operations 
+	//later test it on other tables
 
-	val, err := db1.Update("currencies").
- 	Where(goqu.C("code").Eq("456")).
-	Set(goqu.Record{"name": "jn"}).
- 	Executor().Exec()
-	fmt.Println(val, err)
+	val, _:=pgdb.NewCuurenciesRepository(*goqu.New(db1.Dialect(),db1.Db)).Insert("40","name")
+	fmt.Println(val)
+
+	// val3, _,_:=pgdb.NewCuurenciesRepository(*goqu.New(db1.Dialect(),db1.Db)).ReadOne("40")
+	// fmt.Println(val3.Code,val3.Name,val3.Created_At,val3.Modified_At)
+
+
+	// var val1 uint = 1
+	// val2,_ :=pgdb.NewCuurenciesRepository(*goqu.New(db1.Dialect(),db1.Db)).ReadMany(&val1,5)
+	// for _,val := range val2 {
+	// 	fmt.Println(val.Code,val.Name)
+	// }
+
+	// val6 := "myName"
+	// val5, _:=pgdb.NewCuurenciesRepository(*goqu.New(db1.Dialect(),db1.Db)).Update("40",&val6)
+	// fmt.Println(val5)
+
+	// err1 :=pgdb.NewCuurenciesRepository(*goqu.New(db1.Dialect(),db1.Db)).Delete("40")
+	// fmt.Println(err1)
+
 }
