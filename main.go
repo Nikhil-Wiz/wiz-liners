@@ -38,7 +38,7 @@ func main() {
 	//run each functions seperately to complete crud operations 
 	//later test it on other tables
 
-	val, _:=pgdb.NewCuurenciesRepository(*goqu.New(db1.Dialect(),db1.Db)).Insert("40","name")
+	val, _:=pgdb.NewCuurenciesRepository(*goqu.New(db1.Dialect(),db1.Db)).Insert("40","pqrst")
 	fmt.Println(val)
 
 	// val3, _,_:=pgdb.NewCuurenciesRepository(*goqu.New(db1.Dialect(),db1.Db)).ReadOne("40")
@@ -51,7 +51,7 @@ func main() {
 	// 	fmt.Println(val.Code,val.Name)
 	// }
 
-	// val6 := "myName"
+	// val6 := "xyzw"
 	// val5, _:=pgdb.NewCuurenciesRepository(*goqu.New(db1.Dialect(),db1.Db)).Update("40",&val6)
 	// fmt.Println(val5)
 
