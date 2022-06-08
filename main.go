@@ -58,4 +58,4 @@ func main() {
 	// err1 :=pgdb.NewCuurenciesRepository(*goqu.New(db1.Dialect(),db1.Db)).Delete("40")
 	// fmt.Println(err1)
 
-}
+	}
